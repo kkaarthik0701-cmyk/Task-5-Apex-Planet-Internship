@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NOVA — a responsive demo storefront built with HTML, CSS and JavaScript.">
+  <meta name="theme-color" content="#080d18">
+  <title>NOVA — Curated Tech Store</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">NOVA SELECTS · Thoughtful tech, everyday essentials</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="NOVA home"><span class="brand-mark">N</span><span>NOVA<span class="brand-dot">.</span></span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a><a href="#why-nova">Why NOVA</a><a href="#newsletter">Updates</a>
+    </nav>
+    <button class="cart-button" id="open-cart" aria-label="Open shopping cart">Bag <span id="cart-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> THE EVERYDAY TECH EDIT</p>
+        <h1>Better gear.<br><span>Less noise.</span></h1>
+        <p class="hero-description">A considered collection of useful tech and desk essentials, chosen to make everyday work feel a little more effortless.</p>
+        <a class="primary-button" href="#shop">Explore the collection <span aria-hidden="true">↘</span></a>
+        <div class="hero-meta"><div><strong>12</strong><span>Curated items</span></div><div><strong>01</strong><span>Simple promise</span></div><div><strong>∞</strong><span>Room to create</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative product collage">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="art-label label-top">DESIGNED FOR YOUR FLOW <span>✳</span></div>
+        <div class="product-visual visual-headphones"><div class="headband"></div><div class="earcup left"></div><div class="earcup right"></div></div>
+        <div class="product-visual visual-watch"><div class="watch-strap"></div><div class="watch-face"><span>09:41</span><i></i></div></div>
+        <div class="product-visual visual-speaker"><div class="speaker-grill"></div><div class="speaker-light"></div></div>
+        <div class="art-label label-bottom">N° 001 — NOVA DAILY KIT</div>
+      </div>
+    </section>
+
+    <section class="benefit-strip" id="why-nova">
+      <div><span class="benefit-icon">✦</span><span><strong>Curated, not crowded</strong><small>Only the essentials</small></span></div>
+      <div><span class="benefit-icon">↗</span><span><strong>Made for daily use</strong><small>Practical by design</small></span></div>
+      <div><span class="benefit-icon">◌</span><span><strong>Easy to explore</strong><small>Find your next favourite</small></span></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE COLLECTION</p><h2>Find your <span>everyday upgrade.</span></h2></div>
+        <p class="section-note">Useful objects. Clean design.<br>Made for your space.</p>
+      </div>
+      <div class="shop-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search the collection..." aria-label="Search products"></label>
+        <div class="filters" role="group" aria-label="Filter by category">
+          <button class="filter-chip active" data-category="All">All items</button>
+          <button class="filter-chip" data-category="Audio">Audio</button>
+          <button class="filter-chip" data-category="Workspace">Workspace</button>
+          <button class="filter-chip" data-category="Wearables">Wearables</button>
+        </div>
+        <label class="sort-control"><span>Sort:</span><select id="sort-select" aria-label="Sort products"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A–Z</option></select></label>
+      </div>
+      <div class="results-line"><span id="results-count">12 items</span><span>DEMO STORE · PRICES IN ₹</span></div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><span>⌕</span><h3>No matches just yet</h3><p>Try another search or clear your filters.</p><button class="secondary-button" id="clear-filters">Clear filters</button></div>
+    </section>
+
+    <section class="feature-banner">
+      <div><p class="eyebrow">A LITTLE MORE INTENTIONAL</p><h2>Your desk is a<br><span>launchpad.</span></h2><p>Build a space that helps you think, make, and do your best work.</p><a href="#shop" class="text-link">Build your daily kit <span>→</span></a></div>
+      <div class="desk-art"><div class="desk-window"></div><div class="desk-laptop"><div class="laptop-screen"><span>NOVA<span class="brand-dot">.</span></span><small>MAKE SPACE FOR IDEAS.</small></div><div class="laptop-base"></div></div><div class="desk-plant"><i></i><i></i><i></i><b></b></div><div class="desk-cup"></div></div>
+    </section>
+
+    <section class="newsletter" id="newsletter"><div><p class="eyebrow">THE NOVA NOTE</p><h2>Good things, <span>occasionally.</span></h2><p>Get product notes and thoughtful recommendations. No inbox clutter.</p></div><form id="newsletter-form" class="newsletter-form"><label class="sr-only" for="newsletter-email">Email address</label><input id="newsletter-email" type="email" placeholder="you@example.com" required><button type="submit">Count me in <span>→</span></button><small id="newsletter-message" aria-live="polite">Demo only — no email is sent.</small></form></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="#"><span class="brand-mark">N</span><span>NOVA<span class="brand-dot">.</span></span></a><span>© <span id="year"></span> NOVA SELECTS</span><span>DESIGNED FOR EVERYDAY MOMENTUM.</span></footer>
+
+  <div class="overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-modal="true" role="dialog" hidden>
+    <div class="cart-header"><div><p class="eyebrow">YOUR SELECTION</p><h2 id="cart-title">Your bag <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="close-cart" aria-label="Close cart">✕</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty"><span>＋</span><h3>Your bag is taking a breather.</h3><p>Add something useful to get started.</p></div>
+    <div class="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="cart-subtotal">₹0</strong></div><p>Demo checkout — no payment will be collected.</p><button class="checkout-button" id="checkout-button">Continue to checkout <span>→</span></button></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
